@@ -33,8 +33,15 @@ void sample_phi(double u, double phi_total, double &phi_sample, double &area_tot
     return;
   }
   
-  // avoid divide by zeros
-  // area_sample += std::numeric_limits<double>::epsilon();
+  // This is hard-coded for double precision to 5 iterations.
+  //  
+  // Higher precision requires more iterations,
+  // but can be implemented to still cost only a constant times the cost of single std::tan() call.
+  // In the first iteration use very low precision, say single precision.
+  // In each iteration roughly double the precision, which doubles the cost as well.
+  // Perform O(log b) iterations, where b is the bits of precision desired.
+  // The sum of the cost of all these iterations is merely twice the cost of the last iteration,
+  // through the sum of a geometric series.
   
   // phi 0 initial guess
   const auto p0=pow(6.*area_sample, 1./3.);
