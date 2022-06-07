@@ -686,9 +686,9 @@ void PSA_point_set_analysis_figure()
     int gridn = gridm;
     // makes about 3.5k points, PSA takes 1 minute with its O(n^2) runtime.
     
-    unsigned seed = 24453417 + 613239*i;
+    unsigned seed = 24453417 + 3239*i;
     grid.myrand = MyRand(seed);
-    unsigned seedtime = 26345442 + 89345209*i;
+    unsigned seedtime = 26345442 + 45209*i;
     grid.gen = std::mt19937(seedtime);
     
     grid.periodic = true;

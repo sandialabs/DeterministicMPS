@@ -21,6 +21,19 @@ double Grid::random_expovariate(double area)
 {
   std::exponential_distribution<> d(area);
   const auto r = d(gen);
+  // Some linux platforms with -Ofast generate bad numbers and corrupts the state in a way that is non-recoverable.
+  // This checks for that.
+  if ( std::isnan(r) || std::isinf(r) ||
+       ( (std::fpclassify(r) != FP_ZERO) && ((0*r) == r) ) || // isnan
+       (r>std::numeric_limits<double>::max()/256.) // close to isinf
+     )
+  {
+    std::cout << "Compiler error with -Ofast. A work-around is to choose a different random seed.\n";
+    exit(1);
+    // this should recover, but it doesn't
+    // gen.discard(gen.state_size/2);
+    // return random_expovariate(area);
+  }
   return r;
 }
 
