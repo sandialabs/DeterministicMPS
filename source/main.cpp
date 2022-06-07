@@ -250,6 +250,14 @@ int main(int argc, const char * argv[])
 
   make_figures();
 
+  // user can make their own MPS
+  // parameters are
+  //   number of grid cells in x, y direction
+  //   whether the grid is periodic
+  //   there are additional internal parameters that can be changed
+  // look for output files sweep_0-dots.ps, sweep_0-grid.ps, ... sweep_10-dots.ps, sweep_10-grid.ps.
+  // these are also written by "make_figures" so choose one or the other.
+  // DeterministicMPS( 6, 9, true );
 
   // experiments with variant of algorithm that has no explicit arrival time
   // timeless_test_6(true);

@@ -70,5 +70,8 @@ void PSA_point_set_analysis_figure();
 // timing as the problem size increases
 void DeterministicMPS_runtime_table();
 
+// user makes their own MPS
+void DeterministicMPS( int gridm=9, int gridn=6, bool periodic=true );
+
 
 #endif /* TestGrid_hpp */

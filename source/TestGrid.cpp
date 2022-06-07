@@ -706,3 +706,31 @@ void PSA_point_set_analysis_figure()
     grid.sweep_grid();
   }
 }
+
+
+void DeterministicMPS( int gridm, int gridn, bool periodic )
+{
+  Grid grid;
+  grid.periodic = periodic;
+
+  unsigned seed = 1127308102;
+  unsigned seedtime = 690798395;
+  grid.myrand = MyRand(seed);
+  grid.gen = std::mt19937(seedtime);
+  
+  grid.do_simple_triangulation = true;
+  grid.do_early_stats = false;
+
+  grid.do_plot = true;
+  grid.do_print = false;
+  grid.do_extra_checks = true;
+  grid.do_progress = true;
+  grid.do_counts = true;
+  grid.do_PSA_points = false;
+
+  grid.point_prepasses=0; // 7 is best for running, but 0 is better to illustrate the main algorithm in the paper.
+  grid.square_prepasses=0;
+
+  grid.make_grid(gridm, gridn);
+  grid.sweep_grid();
+}
