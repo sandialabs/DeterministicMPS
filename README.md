@@ -5,7 +5,7 @@ The software is deemed to be Publicly Available.  Copyright 2022 Sandia Corporat
 
 The main purpose of this software is to reproduce the results, data and figures, in the following publication:
 
-"Deterministic Linear Time for Maximal Poisson-Disk Sampling using Chocks without Rejection or Approximation" by Scott A. Mitchell.  Conditionally accepted to Eurographics Symposium on Geometry Processing, SGP, 2022.
+"Deterministic Linear Time for Maximal Poisson-Disk Sampling using Chocks without Rejection or Approximation" by Scott A. Mitchell.  Accepted to Eurographics Symposium on Geometry Processing, SGP, 2022.
 
 
 ## Compiling
